@@ -2,8 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class BindCircle : MonoBehaviour {
-
+public class BindCircle : MonoBehaviour 
+{
     [SerializeField]
     Color start;
     [SerializeField]
@@ -14,12 +14,6 @@ public class BindCircle : MonoBehaviour {
 
     Scrollbar scrollbar { get { return GetComponent<Scrollbar>(); } }
 
-	// Use this for initialization
-	void Start () 
-    {
-	
-	}
-	
 	// Update is called once per frame
 	void Update () 
     {
