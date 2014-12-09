@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 
 [RequireComponent(typeof(Scrollbar))]
-public class BindCircle2 : MonoBehaviour
+public class BindCircleForImage : MonoBehaviour
 {
     [SerializeField]
     Image CircleImage;
@@ -14,13 +14,23 @@ public class BindCircle2 : MonoBehaviour
     [SerializeField]
     Color end;
 
+    [SerializeField]
+    Color current;
 
     Scrollbar scrollbar { get { return GetComponent<Scrollbar>(); } }
 
+    void Start()
+    {
+        CircleImage.type = Image.Type.Filled;
+        CircleImage.fillMethod = Image.FillMethod.Radial360;
+        CircleImage.fillOrigin = 0;
+    }
+
     void Update()
     {
-        CircleImage.fillAmount = scrollbar.value;
+        CircleImage.fillAmount = Mathf.Max( scrollbar.value,0.001f);
         CircleImage.color = Color.Lerp(start, end, scrollbar.value);
+        current = Color.Lerp(start, end, scrollbar.value);
     }
 
      

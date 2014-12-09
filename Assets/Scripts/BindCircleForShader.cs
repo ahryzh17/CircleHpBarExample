@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class BindCircle : MonoBehaviour 
+public class BindCircleForShader : MonoBehaviour 
 {
     [SerializeField]
     Color start;
@@ -10,14 +10,14 @@ public class BindCircle : MonoBehaviour
     Color end;
 
     [SerializeField]
-    Image Circle;
+    Material CircleMaterial;
 
     Scrollbar scrollbar { get { return GetComponent<Scrollbar>(); } }
 
 	// Update is called once per frame
 	void Update () 
     {
-        Circle.material.SetFloat("_Angle", Mathf.Lerp(-3.14f, 3.14f, scrollbar.value));
-        Circle.material.SetColor("_Color", Color.Lerp(start, end, scrollbar.value));
+        CircleMaterial.SetFloat("_Angle", Mathf.Lerp(-3.14f, 3.14f, scrollbar.value));
+        CircleMaterial.SetColor("_Color", Color.Lerp(start, end, scrollbar.value));
 	}
 }

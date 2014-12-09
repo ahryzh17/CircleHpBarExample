@@ -7,6 +7,7 @@ Shader "Custom/CircleShader" {
     }
 
     SubShader {        
+	Tags{"Queue" = "Transparent" }
 	Pass {
 			Blend SrcAlpha OneMinusSrcAlpha 
             CGPROGRAM
